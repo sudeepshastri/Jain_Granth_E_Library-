@@ -2,7 +2,7 @@
 // IMPORTANT: Replace this URL with the actual URL of your CSV file on GitHub.
 // Find it by navigating to the file in your GitHub repo and clicking the "Raw" button.
 // Copy the URL from your browser's address bar.
-const CSV_FILE_URL = 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/YOUR_BRANCH/library-data.csv'; // <-- UPDATE THIS URL
+const CSV_FILE_URL = 'https://raw.githubusercontent.com/sudeepshastri/Jain_Granth_E_Library-/main/library.csv'; // <-- UPDATE THIS URL
 
 const searchInput = document.getElementById('search-input');
 const categoryFilter = document.getElementById('category-filter');
