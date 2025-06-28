@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Online Library</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 15px; /* Add space between control elements */
+        }
+        .search-box, .filter-box {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .search-box {
+            flex-grow: 1; /* Allow search to take available space */
+            max-width: 400px; /* Limit max width */
+        }
+        .filter-box {
+             min-width: 150px; /* Ensure filter has a decent minimum width */
+        }
+        .library-item {
+            border: 1px solid #eee;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            background-color: #fafafa;
+            transition: box-shadow 0.2s ease-in-out;
+        }
+        .library-item:hover {
+             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .library-item h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .library-item p {
+            margin-bottom: 10px;
+        }
+        .library-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .library-item a:hover {
+            text-decoration: underline;
+        }
+        .no-results {
+            text-align: center;
+            color: #888;
+            padding: 20px;
+        }
+        /* Simple Responsive Adjustments */
+        @media (max-width: 600px) {
+            .controls {
+                flex-direction: column; /* Stack controls vertically */
+                align-items: stretch; /* Make controls fill width */
+            }
+            .search-box {
+                max-width: none; /* Allow search to take full width */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>My Digital Library</h1>
+
+        <div class="controls">
+            <input type="text" id="search-input" class="search-box" placeholder="Search titles, descriptions...">
+            <select id="category-filter" class="filter-box">
+                <option value="all">All Categories</option>
+                <!-- Category options will be added here by JavaScript -->
+            </select>
+            <!-- Add more advanced filter/sort options here later if needed -->
+        </div>
+
+        <div id="library-list">
+            <!-- Library items will be loaded here by JavaScript -->
+            <div class="no-results">Loading library data...</div>
+        </div>
+    </div>
+
+    <!-- Include the JavaScript file -->
+    <script src="library.js"></script>
+</body>
+</html>
