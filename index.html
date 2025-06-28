@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Jain Granth E-Library</title>
+  <title>📚 Jain Granth E-Library</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
   <style>
-    /* Base Reset */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,110 +16,116 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #e0eafc, #cfdef3);
-      padding: 30px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+      padding: 40px;
       color: #333;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 36px;
+      margin-bottom: 35px;
+      font-size: 42px;
+      font-weight: 600;
       color: #2c3e50;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .controls {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 25px;
+      gap: 20px;
       flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .search-box, .filter-box {
-      padding: 14px 18px;
-      border: none;
-      border-radius: 50px;
-      font-size: 16px;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-      transition: 0.3s ease;
+      justify-content: center;
+      margin-bottom: 35px;
     }
 
     .search-box {
       flex: 1;
-      max-width: 420px;
+      min-width: 260px;
+      max-width: 400px;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 40px;
+      font-size: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      background: #ffffff;
+      transition: 0.3s ease;
+    }
+
+    .search-box:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
     }
 
     .filter-box {
-      min-width: 180px;
-      background: #f1f5f9;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 40px;
+      font-size: 16px;
+      background: #ffffff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+      min-width: 200px;
     }
 
-    .search-box:focus, .filter-box:focus {
+    .filter-box:focus {
       outline: none;
-      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+      box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
     }
 
     .library-item {
-      background: #fafafa;
-      border-radius: 18px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-      transition: 0.25s ease;
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 25px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: 0.3s ease;
     }
 
     .library-item:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
     }
 
     .library-item h3 {
       font-size: 24px;
-      color: #34495e;
       margin-bottom: 10px;
+      color: #34495e;
     }
 
     .library-item p {
       font-size: 16px;
+      margin-bottom: 16px;
       color: #555;
-      margin-bottom: 14px;
     }
 
     .library-item a {
       display: inline-block;
-      text-decoration: none;
-      padding: 10px 20px;
+      padding: 12px 24px;
       background: linear-gradient(to right, #6a11cb, #2575fc);
       color: #fff;
-      border-radius: 50px;
+      text-decoration: none;
+      border-radius: 30px;
       font-size: 14px;
       transition: 0.3s ease;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
 
     .library-item a:hover {
-      opacity: 0.9;
+      opacity: 0.92;
       transform: translateY(-1px);
     }
 
     .no-results {
       text-align: center;
-      color: #888;
-      padding: 20px;
+      color: #777;
       font-size: 18px;
+      padding: 30px;
     }
 
     @media (max-width: 600px) {
@@ -124,19 +133,21 @@
         flex-direction: column;
         align-items: stretch;
       }
+
       .search-box, .filter-box {
         width: 100%;
       }
     }
   </style>
 </head>
+
 <body>
 
   <div class="container">
     <h1>📚 Jain Granth E-Library</h1>
 
     <div class="controls">
-      <input type="text" id="search-input" class="search-box" placeholder="🔍 Search titles, descriptions...">
+      <input type="text" id="search-input" class="search-box" placeholder="🔍 Search by title or description">
       <select id="category-filter" class="filter-box">
         <option value="all">All Categories</option>
       </select>
@@ -148,5 +159,6 @@
   </div>
 
   <script src="library.js"></script>
+
 </body>
 </html>
